@@ -20,7 +20,7 @@ title                    : "Ross Jo Dev"
 title_separator          : "-"
 name                     : "Ross Jo"
 description              : "personal blog to record what I have learned and my life itself"
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://ross-jo.github.io/
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "Ross-Jo/Ross-Jo.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -106,10 +106,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Ross Jo"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
+  bio              : "A person who wants to make the world a better place"
+  location         : "Suwon"
   email            :
   links:
     - label: "Email"
@@ -182,8 +182,6 @@ exclude:
   - Rakefile
   - README
   - tmp
-  - /docs # ignore Minimal Mistakes /docs
-  - /test # ignore Minimal Mistakes /test
 keep_files:
   - .git
   - .svn
@@ -221,7 +219,7 @@ sass:
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Asia/Seoul # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins (previously gems:)
