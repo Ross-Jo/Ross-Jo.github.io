@@ -57,8 +57,81 @@ link:
 ### 몇몇 JS 함수의 기능
 
 - setInterval : 일정한 간격으로 작업을 수행하기 위해서 사용함. clearInterval 함수를 사용하여 중지 가능. 주의할 점은 일정한 시간 간격으로 실행되는 작업이 그 시간 간격보다 오래걸릴 경우 문제가 발생할 수 있음
+
 - setTimeout : 일정한 시간 후에 작업을 한번 실행함. 보통 재귀적 호출을 사용해 작업을 반복. 기본적으로 setInterval과는 달리 지정된 시간을 기다린 후 작업을 수행하고, 다시 일정한 시간을 기다린 후 작업을 수행하는 방식. 지정된 시간 사이에 작업 시간이 추가되는 것. clearTimeout을 사용해서 작업을 중지
 CF) clearInterval(), clearTimeout()이 실행중인 작업을 중지시키는 것은 아님. 지정된 작업은 모두 실행되고 다음 작업 스케쥴이 중지 되는 것임
+
+- addEventListener : 지정한 이벤트가 대상에 전달될 때마다 호출할 함수를 설정. 해당 함수는 EventTarget의 주어진 이벤트 유형에, EventListener를 구현한 함수 또는 객체를 이벤트 처리기 목록에 추가해 작동함.
+
+- appendChild : 한 노드를 특정 부모 노드의 자식 노드 리스트중 마지막 자식으로 붙임. 만약 주어진 노드가 이미 문서에 존재하는 노드를 참조하고 있다면 appendChild 메소드는 노드를 현재 위치에서 새로운 위치로 이동시킴(한 노드가 문서상의 두 지점에 동시에 존재할 수 없음). 이동한 자식 노드를 반환함
+
+- removeChild : 자식 노드를 DOM으로 부터 제거하고, 제거된 노드를 반환함.
+
+### 자주 사용하는 CSS 속성, 기능들
+
+- overflow : 내용이 요소의 크기를 벗어났을 때, 어떻게 처리할지를 정하는 속성
+
+- @keyframes : 모양의 변화를 정하는 속성. 어떤 모양에서 어떤 모양으로 변할 지 정함.
+  사용방법
+  
+  ```css
+  @keyframes name {
+      0% { ... }
+      n% { ... }
+      100% { ... }
+  }
+  ```
+
+  - name : 애니메이션의 이름
+  - 0% : 시작할때의 모양을 정함. 0% 대신 from을 사용해도 됨
+  - n% : n%일 때의 모양을 정함
+  - 100% : 끝날 때의 모양을 정함. 100% 대신 to를 사용해도 됨
+
+- background-size : 배경 이미지의 가로크기, 세로크기를 정할 수 있음
+
+- background-size : auto | length | cover | contain | initial | inherit
+  - auto : 이미지의 크기를 유지함
+  - length : 값을 두개 넣으면 첫번째 값이 가로 크기, 두번째 값이 세로크기. 값을 한 개 넣으면 가로크기이며, 세로 크기는 원본 이미지의 가로 세로 비율에 맞게 자동으로 정해짐. 백분율을 사용할 수도 있음
+  - cover : 배경을 사용하는 요소를 다 채울 수 있게 이미지를 확대 또는 축소. 가로 / 세로 비율을 유지함
+  - contain : 배경을 사용하는 요소를 벗어나지 않는 최대 크기로 이미지를 확대 또는 축소. 가로 세로 비율을 유지
+  - initial : 기본값으로 설정함
+  - inherit : 부모 요소의 속성값을 상속받음
+
+- background-position : x-position y-position | initial | inherit
+배경 이미지의 위치를 정하는 속성
+  - x-position y-position : 가로 위치와 세로 위치를 정함 (가로 : left, center, right, 백분율, 길이 / 세로 : top, center, bottom, 백분율, 길이)
+  - initial : 기본값으로 설정
+  - inherit : 부모 요소의 속성값을 상속받음
+
+- CSS에서 사용하는 단위들 간의 차이
+CSS의 표준 권고안에 따르면 크기 단위는 절대단위와 상대단위로 구분됨.
+절대단위 : in, cm, mm, pt, pc가 있으며 출력장치(모니터)의 물리적 속성을 아는 경우 효율적
+상대단위 : em, ex, px, %가 있으며 기종간, 플랫폼 간의 호환성을 유지하는데 유리
+  - em : font_size, 해당 폰트의 대문자 M의 너비를 기준으로 함
+  - ex : x-height, 해당폰트의 소문자 x의 높이를 기준으로 함
+  - px : pixel, 표시장치(모니터)에 따라서 상대적인 크기를 가짐
+  - % : percent, 기본글꼴의 크기에 대하여 상대적인 값을 가짐
+  - pt : point, 일반 문서(워드 등)에서 많이 사용하는 단위
+
+- animation : 다수의 스타일을 전환하는 애니메이션을 적용함
+animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode, animation-play-state의 단축 속성
+  - animation-timing-function : 에니메이션의 각 사이클마다 어떻게 애니메이션이 진행될지를 설정함. ex) linear, ease-in-out, steps(5, end)
+  - animation-delay : 애니메이션이 시작할 시점을 지정함
+  - animation-fill-mode : 애니메이션이 실행 전과 후에 대상에 스타일을 적용하는 방법을 지정
+    - forwards : 실행 된 애니메이션의 마지막 keyframe에 의해 설정된 계산 된 값을 유지
+  - animation-play-state : 애니메이션의 동작 상태를 지정 ex) running, paused
+
+- appearance : 요소(element)의 모양을 운영체제의 테마를 기반으로, 플랫폼 고유 스타일로 표기하기 위해 사용
+
+- Pseudo-classes(:)와 Pseudo-elements(::)의 차이점
+  - Pseudo-classes 의 경우 요소(element)의 각기 다른 '상태'들을 다르게 스타일링하는데 사용됨. ex) hover, disabled, nth child 등
+  - Pseudo-elements 의 경우 요소(element)의 각기 다른 '부분'들을 다르게 스타일링하는데 사용됨. ex) first-line, first-letter 등
+
+- outline : border 속성보다 더 외곽에 위치하고 있음. outline의 경우 축약 속성이며, 테두리와 유사하지만, 공간을 차지하지 않음. 사각형이 아닐수도 있음. outline-color, outline-style, outline-width 순서로 속성값을 작성.
+
+- list-style-type : 목록을 \<ul\> 또는 \<ol\> 태그로 만들었을 때, 목록 앞에 붙는 도형이나 문자을 마커(Marker)라고 하는데, 어떤 형식 또는 모양의 마커를 사용할지는 list-style-type으로 정함
+
+- transition : CSS 트랜지션은 CSS 속성을 변경할 때, 애니메이션 속도를 조절하는 방법을 제공
 
 ### 기타
 
@@ -125,9 +198,36 @@ function handleSubmit(event) {
 
 ```
 
+- css 파일 구성의 한가지 방법
+
+index.html 부분
+
+```html
+  <head>
+      <link rel="stylesheet" href="css/styles.css"/>
+  </head>
+```
+
+styles.css 부분
+
+```css
+  @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+  @import "main.css";
+  @import "location.css";
+  @import "clock.css";
+  @import "center.css";
+  @import "todo.css";
+```
+
 참고 페이지
 
 - <https://developer.mozilla.org/ko/docs/Web/HTML/Quirks_Mode_and_Standards_Mode>
+- <https://developer.mozilla.org/ko/docs/Web/API/EventTarget/addEventListener>
+- <https://developer.mozilla.org/ko/docs/Web/API/Node/appendChild>
+- <https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild>
+- <https://developer.mozilla.org/ko/docs/Web/CSS/animation>
+- <https://developer.mozilla.org/en-US/docs/Web/CSS/appearance>
+- <https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions>
 - <https://www.zerocho.com/category/HTML&DOM/post/58177daee4184c0015b8058a>
 - <https://www.zerocho.com/category/HTML&DOM/post/5821b15f577d375e5c73bbc5>
 - <https://www.zerocho.com/category/HTML&DOM/post/5823eff1cf58b000181d2ea3>
@@ -135,5 +235,13 @@ function handleSubmit(event) {
 - <https://www.w3schools.com/tags/tag_link.asp>
 - <https://www.w3schools.com/tags/tag_script.asp>
 - <https://webdir.tistory.com/38>
+- <https://webdir.tistory.com/342>
 - <https://offbyone.tistory.com/241>
 - <https://developer.mozilla.org/ko/docs/Web/API/Window/localStorage>
+- <https://www.codingfactory.net/10599>
+- <https://www.codingfactory.net/11168>
+- <https://www.codingfactory.net/10559>
+- <https://www.codingfactory.net/10595>
+- <https://www.codingfactory.net/10537>
+- <https://zinee-world.tistory.com/131>
+- <https://stackoverflow.com/questions/29754474/css-vs-pseudo-element-vs-pseudo-selector>
