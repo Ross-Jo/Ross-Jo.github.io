@@ -9,4 +9,4 @@ group :jekyll_plugins do
 end
 
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
-gem 'nokogiri', '~> 1.10.4'
+gem 'nokogiri', '~> 1.11.0'
